@@ -1,0 +1,31 @@
+:root {
+  --background: #fdf6f0;
+  --primary: #2d2a32;
+  --accent: #ff5c58;
+  --cta: #ff9f1c;
+  --text: #2d2a32;
+}
+
+.dark {
+  --background: #2d2a32;
+  --primary: #fdf6f0;
+  --accent: #ff9f1c;
+  --cta: #ff5c58;
+  --text: #fdf6f0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
