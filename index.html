@@ -1,24 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaunchLayer</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <button id="theme-toggle" aria-label="Toggle light/dark mode">
-        <svg
-          id="theme-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor">
-          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
-        </svg>
-      </button>
-    </header>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Web Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FDF6F0;
+      --text: #2D2A32;
+      --accent: #FF5C58;
+      --highlight: #FF9F1C;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: var(--highlight);
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .services, .pricing {
+      display: grid;
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing .card {
+      border: 2px solid var(--highlight);
+    }
+
+    .price {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fff;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 700px) {
+      .services, .pricing {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>We Build Websites</h1>
+    <p>Creative, custom-built sites by our talented team, affordable and fast.</p>
+  </header>
+
+  <section>
+    <h2 class="section-title">What We Do</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Simple Sites</h3>
+        <p>Clean, responsive HTML/CSS/JS sites for personal or small business use.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Designs</h3>
+        <p>Tailored looks with your brand colors, fonts, and animations.</p>
+      </div>
+      <div class="card">
+        <h3>Built-in Features</h3>
+        <p>Need interactive features, forms, or something crazy? We’ve got you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing">
+      <div class="card">
+        <h3>Basic Site</h3>
+        <p class="price">$5</p>
+        <p>Simple one-page layout. Clean and mobile-friendly.</p>
+      </div>
+      <div class="card">
+        <h3>Multi-Page</h3>
+        <p class="price">$10</p>
+        <p>Multiple pages, basic animations, and navigation.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Requests</h3>
+        <p class="price">$20+</p>
+        <p>Special features, complex animations, or custom functions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Contact Us</h2>
+    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.05); padding:32px; max-width:500px; margin:auto;">
+      <p style="font-size:1.1rem; margin-bottom:18px;">
+        Ready to start your project or have questions? Reach out!
+      </p>
+      <div style="margin-bottom:16px;">
+        <strong>Email:</strong>
+        <a href="mailto:launchlayer@example.com" style="color:var(--accent); text-decoration:none;">launchlayer@example.com</a>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong>Discord:</strong>
+        <span style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; margin-right:8px; font-weight:bold;">supremeal05</span>
+        <span style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; font-weight:bold;">ax1x1x1x1b</span>
+      </div>
+      <a href="mailto:launchlayer@example.com" style="
+        display:inline-block;
+        background:var(--accent);
+        color:#fff;
+        font-weight:bold;
+        padding:12px 28px;
+        border-radius:8px;
+        text-decoration:none;
+        font-size:1rem;
+        margin-top:10px;
+        transition:background 0.2s;
+      " onmouseover="this.style.background='var(--highlight)'" onmouseout="this.style.background='var(--accent)'">
+        Email Us
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LaunchLayer. All rights reserved. Contact us either via email or our discord: <strong>supremeal05</strong> or <strong>ax1x1x1x1b</strong>
+    <script>
+      // Example script: highlight Discord usernames on hover
+      document.querySelectorAll('footer strong').forEach(function(el) {
+        el.addEventListener('mouseenter', function() {
+          el.style.color = '#FF5C58';
+          el.style.textDecoration = 'underline';
+        });
+        el.addEventListener('mouseleave', function() {
+          el.style.color = '';
+          el.style.textDecoration = '';
+        });
+      });
+    </script>
+  </footer>
+
+</body>
 </html>
