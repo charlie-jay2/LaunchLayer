@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative Web Team</title>
+  <title>LaunchLayer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #FDF6F0;
-      --text: #2D2A32;
-      --accent: #FF5C58;
-      --highlight: #FF9F1C;
+      --bg: #ffffff;
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --highlight: #3498db;
+      --text: #2c3e50;
     }
 
     * {
@@ -54,7 +56,8 @@
       color: var(--accent);
     }
 
-    .services, .pricing {
+    .services,
+    .pricing {
       display: grid;
       gap: 30px;
     }
@@ -63,7 +66,7 @@
       background: #fff;
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       transition: 0.2s ease;
     }
 
@@ -90,12 +93,15 @@
     }
 
     @media (min-width: 700px) {
-      .services, .pricing {
+
+      .services,
+      .pricing {
         grid-template-columns: repeat(3, 1fr);
       }
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -144,18 +150,22 @@
 
   <section>
     <h2 class="section-title">Contact Us</h2>
-    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.05); padding:32px; max-width:500px; margin:auto;">
+    <div
+      style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.05); padding:32px; max-width:500px; margin:auto;">
       <p style="font-size:1.1rem; margin-bottom:18px;">
         Ready to start your project or have questions? Reach out!
       </p>
       <div style="margin-bottom:16px;">
         <strong>Email:</strong>
-        <a href="mailto:launchlayer@example.com" style="color:var(--accent); text-decoration:none;">launchlayer@example.com</a>
+        <a href="mailto:launchlayer@example.com"
+          style="color:var(--accent); text-decoration:none;">launchlayer@example.com</a>
       </div>
       <div style="margin-bottom:16px;">
         <strong>Discord:</strong>
-        <span style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; margin-right:8px; font-weight:bold;">supremeal05</span>
-        <span style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; font-weight:bold;">ax1x1x1x1b</span>
+        <span
+          style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; margin-right:8px; font-weight:bold;">supremeal05</span>
+        <span
+          style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; font-weight:bold;">ax1x1x1x1b</span>
       </div>
       <a href="mailto:launchlayer@example.com" style="
         display:inline-block;
@@ -175,15 +185,16 @@
   </section>
 
   <footer>
-    &copy; 2025 LaunchLayer. All rights reserved. Contact us either via email or our discord: <strong>supremeal05</strong> or <strong>ax1x1x1x1b</strong>
+    &copy; 2025 LaunchLayer. All rights reserved. Contact us either via email or our discord:
+    <strong>supremeal05</strong> or <strong>ax1x1x1x1b</strong>
     <script>
       // Example script: highlight Discord usernames on hover
-      document.querySelectorAll('footer strong').forEach(function(el) {
-        el.addEventListener('mouseenter', function() {
+      document.querySelectorAll('footer strong').forEach(function (el) {
+        el.addEventListener('mouseenter', function () {
           el.style.color = '#FF5C58';
           el.style.textDecoration = 'underline';
         });
-        el.addEventListener('mouseleave', function() {
+        el.addEventListener('mouseleave', function () {
           el.style.color = '';
           el.style.textDecoration = '';
         });
@@ -192,4 +203,5 @@
   </footer>
 
 </body>
+
 </html>

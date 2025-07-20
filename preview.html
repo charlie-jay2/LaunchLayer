@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaunchLayer | Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1E1E1E;
+      --primary: #F5F5F5;
+      --accent: #00BCD4;
+      --highlight: #3498db;
+      --text: #2c3e50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      background-color: var(--highlight);
+      color: #fff;
+      padding: 50px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    header a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    header a:hover {
+      background: var(--primary);
+    }
+
+    /* Carousel */
+    .carousel-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 10px;
+    }
+
+    .carousel-nav button {
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .carousel-nav button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .services,
+    .pricing {
+      display: grid;
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .pricing .card {
+      border: 2px solid var(--highlight);
+    }
+
+    .price {
+      font-size: 1.7rem;
+      color: var(--accent);
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #fff;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 700px) {
+
+      .services,
+      .pricing {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>LaunchLayer Preview</h1>
+    <p>Showcasing your next big thing with style and simplicity.</p>
+    <a href="#contact">Contact Us</a>
+  </header>
+
+  <div style="text-align:center; margin-top:30px;">
+    <a href="#contact" style="
+    display:inline-block;
+    background: var(--highlight);
+    color: #fff;
+    font-weight: bold;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.2s;
+  " onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--highlight)'">
+      Get Started
+    </a>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-slide">
+      <a href="https://fasttrackstudios.netlify.app/welcome.html" target="_blank">
+        <img src="/assets/previews/1.png" alt="Preview 1">
+      </a>
+      <a href="https://flexagroupweb.netlify.app/" target="_blank">
+        <img src="/assets/previews/2.png" alt="Preview 2">
+      </a>
+      <a href="https://vocadecks.com" target="_blank">
+        <img src="/assets/previews/3.png" alt="Preview 3">
+      </a>
+    </div>
+    <div class="carousel-nav">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Custom Development</h3>
+        <p>Tailored solutions to bring your vision to life quickly and beautifully.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Modern, user-centered designs to keep your users engaged.</p>
+      </div>
+      <div class="card">
+        <h3>Growth Consulting</h3>
+        <p>Data-driven strategies to help scale your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Pricing Plans</h2>
+    <div class="pricing">
+      <div class="card">
+        <h3>Starter</h3>
+        <p>Perfect for individuals and small teams.</p>
+        <div class="price">$99/mo</div>
+        <a href="#contact" class="cta-button">Choose Plan</a>
+      </div>
+      <div class="card">
+        <h3>Pro</h3>
+        <p>Ideal for growing businesses.</p>
+        <div class="price">$249/mo</div>
+        <a href="#contact" class="cta-button">Choose Plan</a>
+      </div>
+      <div class="card">
+        <h3>Enterprise</h3>
+        <p>For enterprises needing full support.</p>
+        <div class="price">Custom</div>
+        <a href="#contact" class="cta-button">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div
+      style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.05); padding:32px; max-width:500px; margin:auto;">
+      <p style="font-size:1.1rem; margin-bottom:18px;">
+        Ready to start your project or have questions? Reach out!
+      </p>
+      <div style="margin-bottom:16px;">
+        <strong>Email:</strong>
+        <a href="mailto:launchlayer@example.com"
+          style="color:var(--accent); text-decoration:none;">launchlayer@example.com</a>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong>Discord:</strong>
+        <span
+          style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; margin-right:8px; font-weight:bold;">supremeal05</span>
+        <span
+          style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; font-weight:bold;">ax1x1x1x1b</span>
+      </div>
+      <a href="mailto:launchlayer@example.com" style="
+        display:inline-block;
+        background:var(--accent);
+        color:#fff;
+        font-weight:bold;
+        padding:12px 28px;
+        border-radius:8px;
+        text-decoration:none;
+        font-size:1rem;
+        margin-top:10px;
+        transition:background 0.2s;
+      " onmouseover="this.style.background='var(--highlight)'" onmouseout="this.style.background='var(--accent)'">
+        Email Us
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LaunchLayer. All rights reserved. Contact us: <strong>supremeal05</strong> or <strong>ax1x1x1x1b</strong>
+  </footer>
+
+  <script>
+    const slide = document.querySelector('.carousel-slide');
+    const images = document.querySelectorAll('.carousel-slide img');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let counter = 0;
+
+    function showSlide() {
+      slide.style.transform = 'translateX(' + (-counter * 100) + '%)';
+    }
+
+    nextBtn.addEventListener('click', () => {
+      counter = (counter + 1) % images.length;
+      showSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      counter = (counter - 1 + images.length) % images.length;
+      showSlide();
+    });
+
+    setInterval(() => {
+      counter = (counter + 1) % images.length;
+      showSlide();
+    }, 5000); // Auto-slide every 5s
+  </script>
+
+</body>
+
+</html>
