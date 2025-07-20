@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LaunchLayer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #ffffff;
@@ -22,7 +22,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -92,6 +92,78 @@
       font-size: 0.9rem;
     }
 
+    /* Modal Styles */
+    #contactModal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #modalContent {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 500px;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    #modalContent h3 {
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    #modalContent label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    #modalContent input,
+    #modalContent textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    #modalContent button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    #modalContent button:hover {
+      background: var(--highlight);
+    }
+
+    #modalClose {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: bold;
+      border: none;
+      background: transparent;
+    }
+
     @media (min-width: 700px) {
 
       .services,
@@ -103,7 +175,6 @@
 </head>
 
 <body>
-
   <header>
     <h1>We Build Websites</h1>
     <p>Creative, custom-built sites by our talented team, affordable and fast.</p>
@@ -167,41 +238,105 @@
         <span
           style="background:var(--highlight); color:#fff; border-radius:6px; padding:4px 10px; font-weight:bold;">ax1x1x1x1b</span>
       </div>
-      <a href="mailto:launchlayer@example.com" style="
+      <button id="openModal" style="
         display:inline-block;
         background:var(--accent);
         color:#fff;
         font-weight:bold;
         padding:12px 28px;
         border-radius:8px;
-        text-decoration:none;
         font-size:1rem;
-        margin-top:10px;
+        border:none;
+        cursor:pointer;
         transition:background 0.2s;
-      " onmouseover="this.style.background='var(--highlight)'" onmouseout="this.style.background='var(--accent)'">
-        Email Us
-      </a>
+      " onmouseover="this.style.background='var(--highlight)'" onmouseout="this.style.background='var(--accent)'" >
+        Contact Us
+      </button>
     </div>
   </section>
+
+  <!-- Modal -->
+  <div id="contactModal">
+    <div id="modalContent">
+      <button id="modalClose" aria-label="Close">&times;</button>
+      <h3>Contact LaunchLayer</h3>
+      <form id="contactForm">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">What you need</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
 
   <footer>
     &copy; 2025 LaunchLayer. All rights reserved. Contact us either via email or our discord:
     <strong>supremeal05</strong> or <strong>ax1x1x1x1b</strong>
     <script>
-      // Example script: highlight Discord usernames on hover
-      document.querySelectorAll('footer strong').forEach(function (el) {
-        el.addEventListener('mouseenter', function () {
-          el.style.color = '#FF5C58';
-          el.style.textDecoration = 'underline';
+      // Highlight Discord usernames on hover
+      document.querySelectorAll("footer strong").forEach(function (el) {
+        el.addEventListener("mouseenter", function () {
+          el.style.color = "#FF5C58";
+          el.style.textDecoration = "underline";
         });
-        el.addEventListener('mouseleave', function () {
-          el.style.color = '';
-          el.style.textDecoration = '';
+        el.addEventListener("mouseleave", function () {
+          el.style.color = "";
+          el.style.textDecoration = "";
         });
+      });
+
+      // Modal open/close
+      const modal = document.getElementById("contactModal");
+      const openBtn = document.getElementById("openModal");
+      const closeBtn = document.getElementById("modalClose");
+      const form = document.getElementById("contactForm");
+
+      openBtn.onclick = () => {
+        modal.style.display = "block";
+      };
+
+      closeBtn.onclick = () => {
+        modal.style.display = "none";
+      };
+
+      window.onclick = (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Form submission handler
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch("/.netlify/functions/sendEmail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            alert("Message sent successfully!");
+            modal.style.display = "none";
+            form.reset();
+          } else {
+            alert("Failed to send message. Please try again later.");
+          }
+        } catch (err) {
+          alert("Error sending message. Please check your connection.");
+        }
       });
     </script>
   </footer>
-
 </body>
 
 </html>
